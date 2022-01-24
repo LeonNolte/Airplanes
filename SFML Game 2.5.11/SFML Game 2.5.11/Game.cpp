@@ -99,6 +99,9 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_window.close();
 	}
+
+	movePlane();
+
 }
 
 /// <summary>
@@ -131,5 +134,14 @@ void Game::setupSprite()
 	m_planeOneSprite.setTexture(m_planesTexture);
 	m_planeOneSprite.setTextureRect(sf::IntRect(362, 115, 87, 69));
 	m_planeOneSprite.setOrigin(43.5f, 34.5f);
-	m_planeOneSprite.setPosition(sf::Vector2f(400.0f, 300.0f));
+	m_planeOneSprite.setPosition(sf::Vector2f(50.0f, 30.0f));
+}
+
+/// <summary>
+/// moves plane at basic set speed
+/// </summary>
+void Game::movePlane()
+{
+	m_planesPosition += m_currentVelocity;
+	m_planeOneSprite.setPosition(m_planesPosition);
 }
