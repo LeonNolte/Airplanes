@@ -1,8 +1,13 @@
 /// <summary>
-/// simple game loop for SFML[2.5.1]
-/// 
-/// @author Peter Lowe
-/// @date May 2019
+/// Leon Nolte
+/// C00263935
+/// 24 January 2022
+/// Est. time: 6 hours
+/// Session 1: 14:10 - 14:55
+/// ---------------------------------------------
+/// Two airplanes moving across screen by clicking and dragging mouse to set their velocity
+/// ---------------------------------------------
+/// Known bugs: none
 /// </summary>
 
 #ifdef _DEBUG 
