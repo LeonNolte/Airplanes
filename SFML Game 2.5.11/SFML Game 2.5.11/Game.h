@@ -35,14 +35,20 @@ private:
 	void setupSprite();
 
 	void movePlane();
+	void setFlightAngle();
+
+	const float M_PI = 3.1416f;
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
 
 	sf::Sprite m_planeOneSprite;	// first plane sprite
 	sf::Texture m_planesTexture;	// texture used for planes
-	sf::Vector2f m_planesPosition;	// center point of plane
-	sf::Vector2f m_currentVelocity{ 1.0f, 1.0f};	// current velocity of plane
+	sf::Vector2f m_planesPosition{200.0f, 200.0f};	// center point of plane
+	sf::Vector2f m_currentVelocity{ -1.0f, -1.0f};	// current velocity of plane
+
+	float m_flightAngleRadians = 0.0f;
+	float m_flightAngle = 0.0f;
 
 	bool m_exitGame; // control exiting game
 

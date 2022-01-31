@@ -135,13 +135,45 @@ void Game::setupSprite()
 	m_planeOneSprite.setTextureRect(sf::IntRect(362, 115, 87, 69));
 	m_planeOneSprite.setOrigin(43.5f, 34.5f);
 	m_planeOneSprite.setPosition(sf::Vector2f(50.0f, 30.0f));
+	setFlightAngle();
 }
 
 /// <summary>
-/// moves plane at basic set speed
+/// moves plane at basic set speed and detects window boundaries
 /// </summary>
 void Game::movePlane()
 {
 	m_planesPosition += m_currentVelocity;
 	m_planeOneSprite.setPosition(m_planesPosition);
+
+	if (m_planesPosition.x <= 0.0f)
+	{
+		m_planesPosition.x = 0.0f;
+	}
+
+	else if (m_planesPosition.x >= 800.0f)
+	{
+		m_planesPosition.x = 800.0f;
+	}
+
+	if (m_planesPosition.y <= 0.0f)
+	{
+		m_planesPosition.y = 0.0f;
+	}
+
+	else if (m_planesPosition.y >= 600.0f)
+	{
+		m_planesPosition.y = 600.0f;
+	}
+}
+
+/// <summary>
+/// rotates sprite to fit plane trajectory
+/// </summary>
+void Game::setFlightAngle()
+{
+	m_flightAngleRadians = std::atan2(m_currentVelocity.y, m_currentVelocity.x);	// calculates angle in radians
+	m_flightAngle = 180.0f * m_flightAngleRadians / M_PI;	// translates radians into degrees
+
+	m_planeOneSprite.setRotation(m_flightAngle + 90.0f);	// +90 degrees since original asset points upward
 }
