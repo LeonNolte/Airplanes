@@ -73,6 +73,14 @@ void Game::processEvents()
 		{
 			processKeys(newEvent);
 		}
+		if (sf::Event::MouseButtonPressed == newEvent.type)	// user klicked with mouse
+		{
+			processMouseKlicks(newEvent);
+		}
+		if (sf::Event::MouseButtonReleased == newEvent.type) // user released mouse button
+		{
+			processMouseReleases(newEvent);
+		}
 	}
 }
 
@@ -86,6 +94,32 @@ void Game::processKeys(sf::Event t_event)
 	if (sf::Keyboard::Escape == t_event.key.code)
 	{
 		m_exitGame = true;
+	}
+}
+
+/// <summary>
+/// deals with mouse button presses from user
+/// </summary>
+/// <param name="t_event"> mouse button press event </param>
+void Game::processMouseKlicks(sf::Event t_event)
+{
+	if (sf::Mouse::Left == t_event.key.code)
+	{
+		m_newVelocityOrigin = static_cast<sf::Vector2f>(sf::Mouse::getPosition());
+	}
+}
+
+/// <summary>
+/// deals with mouse button releases
+/// </summary>
+/// <param name="t_event"> mouse button release release event </param>
+void Game::processMouseReleases(sf::Event t_event)
+{
+	if (sf::Mouse::Left == t_event.key.code)
+	{
+		m_newVelocityEnd = static_cast<sf::Vector2f>(sf::Mouse::getPosition());
+		m_currentVelocity = (m_newVelocityEnd - m_newVelocityOrigin) / 80.0f; // sets new plane velocity
+		setFlightAngle();
 	}
 }
 

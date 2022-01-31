@@ -28,6 +28,8 @@ private:
 
 	void processEvents();
 	void processKeys(sf::Event t_event);
+	void processMouseKlicks(sf::Event t_event);
+	void processMouseReleases(sf::Event t_event);
 	void update(sf::Time t_deltaTime);
 	void render();
 	
@@ -46,6 +48,8 @@ private:
 	sf::Texture m_planesTexture;	// texture used for planes
 	sf::Vector2f m_planesPosition{200.0f, 200.0f};	// center point of plane
 	sf::Vector2f m_currentVelocity{ -1.0f, -1.0f};	// current velocity of plane
+	sf::Vector2f m_newVelocityOrigin;
+	sf::Vector2f m_newVelocityEnd;
 
 	float m_flightAngleRadians = 0.0f;
 	float m_flightAngle = 0.0f;

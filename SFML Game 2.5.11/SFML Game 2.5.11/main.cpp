@@ -4,6 +4,7 @@
 /// 24 January 2022
 /// Est. time: 6 hours
 /// Session 1: 14:10 - 14:55
+/// Session 2: 13:15 - 14:55
 /// ---------------------------------------------
 /// Two airplanes moving across screen by clicking and dragging mouse to set their velocity
 /// ---------------------------------------------
